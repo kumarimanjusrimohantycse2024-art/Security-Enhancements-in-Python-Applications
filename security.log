@@ -1,0 +1,10 @@
+2026-08-16 19:05:35,978 [INFO] Database initialized.
+2026-08-16 19:06:27,724 [INFO] User added: MANISHA
+2026-08-16 19:06:37,286 [INFO] Search performed with term: 'Manisha', found 1 rows.
+2026-08-16 19:08:05,433 [INFO] Application exited by user.
+2026-08-16 19:08:08,905 [INFO] Database initialized.
+2026-08-16 19:08:08,914 [INFO] User added: testuser
+2026-08-16 19:08:08,918 [WARNING] Invalid email attempt: 'not-an-email'
+2026-08-16 19:08:08,919 [WARNING] Invalid username attempt: "'); DROP TABLE users; --"
+2026-08-16 19:08:08,929 [INFO] User added: alice
+2026-08-16 19:08:08,935 [WARNING] Weak password attempt.
