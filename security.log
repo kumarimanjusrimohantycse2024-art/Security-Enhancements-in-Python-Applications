@@ -8,3 +8,15 @@
 2026-08-16 19:08:08,919 [WARNING] Invalid username attempt: "'); DROP TABLE users; --"
 2026-08-16 19:08:08,929 [INFO] User added: alice
 2026-08-16 19:08:08,935 [WARNING] Weak password attempt.
+2026-09-17 11:38:31,123 [INFO] Database initialized.
+2026-09-17 11:38:31,124 [INFO] User added: testuser
+2026-09-17 11:38:31,124 [WARNING] Invalid email attempt: 'not-an-email'
+2026-09-17 11:38:31,125 [WARNING] Invalid username attempt: "'); DROP TABLE users; --"
+2026-09-17 11:38:31,126 [INFO] User added: alice
+2026-09-17 11:38:31,126 [WARNING] Weak password attempt.
+2026-09-17 11:39:48,115 [INFO] Database initialized.
+2026-09-17 11:39:48,116 [INFO] User added: testuser
+2026-09-17 11:39:48,117 [WARNING] Invalid email attempt: 'not-an-email'
+2026-09-17 11:39:48,117 [WARNING] Invalid username attempt: "'); DROP TABLE users; --"
+2026-09-17 11:39:48,118 [INFO] User added: alice
+2026-09-17 11:39:48,119 [WARNING] Weak password attempt.

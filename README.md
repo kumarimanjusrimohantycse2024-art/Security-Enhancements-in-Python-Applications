@@ -1,50 +1,99 @@
-Week 5 – Security Enhancements in Python Applications
+# Security Enhancements in Python Applications
 
-Author: Manjusri Mohanty  
-Date: 2026-08-16  
+This repository demonstrates how to evolve a vulnerable Python CLI app into a more secure implementation while preserving core functionality.
 
-Overview
+## Value proposition
 
-This project demonstrates how to identify and fix common security vulnerabilities in a Python CLI application. It includes both an insecure baseline (for learning) and a hardened secure version, along with tests and a detailed security audit.
+- Practical side-by-side learning: insecure vs secure implementation.
+- Concrete mitigations for common application security flaws.
+- Runnable tests that verify security-focused behavior.
 
-Project Structure
+## Features
 
-- `insecure_user_manager.py` – Vulnerable version with intentional flaws (for audit reference)  
-- `secure_user_manager.py` – Hardened version with security fixes applied  
-- `test_secure_app.py` – Unit tests and security-oriented validations  
-- `security_audit_report.md` – Comprehensive audit: vulnerabilities, exploit scenarios, and mitigations  
-- `README.md` – This file  
+- User add/search workflow backed by SQLite.
+- Input validation for usernames, emails, passwords, and search terms.
+- Parameterized SQL queries to reduce SQL injection risk.
+- Salted SHA-256 password hashing (educational baseline).
+- Safer error handling and security event logging.
 
- How to Run
+## Tech stack
 
- Insecure Version (Learning Only – Do Not Use with Real Data)
+- [Python 3](https://www.python.org/)
+- [sqlite3](https://docs.python.org/3/library/sqlite3.html) (standard library)
+- [unittest](https://docs.python.org/3/library/unittest.html) (standard library)
+
+## Project structure
+
+- [`secure_user_manager.py`](./secure_user_manager.py) - hardened CLI implementation.
+- [`insecure_user_manager.py`](./insecure_user_manager.py) - intentionally vulnerable baseline for comparison.
+- [`test_secure_app.py`](./test_secure_app.py) - unit/security behavior tests.
+- [`security_audit_report.md`](./security_audit_report.md) - audit findings and mitigations.
+- [`security.log`](./security.log) - runtime log output file (created/updated during runs).
+
+## Prerequisites
+
+- Python 3.9+ available on `PATH`.
+
+## Installation
 
 ```bash
-python insecure_user_manager.py
+git clone https://github.com/kumarimanjusrimohantycse2024-art/Security-Enhancements-in-Python-Applications.git
+cd Security-Enhancements-in-Python-Applications
 ```
 
-Secure Version
+No third-party dependencies are required.
+
+## Configuration
+
+By default, the secure app writes to:
+
+- SQLite DB: `users_secure.db`
+- Log file: `security.log`
+
+These defaults are defined in [`secure_user_manager.py`](./secure_user_manager.py).
+
+## Usage
+
+Run the secure application:
 
 ```bash
 python secure_user_manager.py
 ```
 
- Run Tests
+Run the insecure learning baseline:
 
 ```bash
-python -m unittest test_secure_app.py
+python insecure_user_manager.py
 ```
 
- Security Measures Implemented
+## Testing
 
-- Parameterized SQL Queries: Prevents SQL injection by separating data from query logic.  
-- Salted Password Hashing: Stores salted SHA-256 hashes instead of plain-text passwords.  
-- Input Validation: Enforces rules on username format, email structure, password length, and search term size.  
-- Safe Error Handling: Shows generic messages to users; logs detailed errors securely for debugging.  
-- No Password Exposure: Passwords are never displayed in search results or logs.  
-- Security Logging: Tracks key events (user additions, invalid inputs, errors) to `security.log` for monitoring.  
+Run tests:
 
+```bash
+python -m unittest -v test_secure_app.py
+```
 
+## Troubleshooting
 
-- The insecure version is provided solely to illustrate typical beginner mistakes and support the audit narrative.  
-- For production use, replace SHA-256 with a dedicated password hasher (e.g., `bcrypt` or `argon2`), add authentication with rate limiting, and harden deployment (file permissions, log rotation, dependency scanning).  
+- **`python: command not found`**: use `python3` instead of `python`.
+- **Permission issues writing DB/log files**: run in a writable directory.
+- **Duplicate user/email errors**: usernames and emails must be unique.
+
+## CI
+
+This repository includes a GitHub Actions workflow:
+
+- [`python-ci.yml`](./.github/workflows/python-ci.yml) - runs unit tests on pushes and pull requests.
+
+## Contributing
+
+1. Fork the repository.
+2. Create a branch for your change.
+3. Run tests locally.
+4. Open a pull request with a clear summary.
+
+## License and project status
+
+- **License:** No license file is currently present in this repository.
+- **Status:** Active educational project focused on secure coding practices in Python CLI applications.
